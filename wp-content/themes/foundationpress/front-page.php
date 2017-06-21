@@ -37,10 +37,15 @@ get_header(); ?>
 
 <!--travaux -->
   <section class="travaux" id="travaux" data-magellan-target="travaux">
-
+    <?php
+	/* SI ON A DES ARTICLES*/
+		if(have_posts()):
+			while(have_posts()):
+				the_post();
+				?>
     <div class="expanded row">
-      <div class="large-9 columns wow fadeInLeft" data-wow-delay="0.4s" >
-          <a href="#" class="">
+      <div class="large-9 columns wow fadeInLeft containerimg" data-wow-delay="0.4s" >
+          <a href="<?php the_permalink(); ?>" class="">
             <?php
       			if ( has_post_thumbnail() ) {
       				the_post_thumbnail();}
@@ -48,47 +53,51 @@ get_header(); ?>
           </a>
       </div>
       <div class="large-3 columns">
-        <h4 class="wow fadeInLeft" data-wow-delay="0.6s">Bibliothèque</h4>
-        <h5 class="wow fadeInLeft" data-wow-delay="0.8s">Chêne, 81x180cm</h5>
+        <h4 class="wow fadeInLeft" data-wow-delay="0.6s"><?php the_title(); ?></h4>
+        <h5 class="wow fadeInLeft" data-wow-delay="0.8s"><?php the_excerpt(); ?></h5>
       </div>
     </div>
 
+    <?php
+			endwhile;
+			endif;
+			?>
+
+
+
+
+    <?php
+    $args = array(
+    'post_type'=> 'realisation',
+    'posts_per_page' => 2,
+    'orderby' => 'date',
+    'order' => 'DESC'
+    );
+    $wp_query = new WP_Query( $args );
+    while ( $wp_query->have_posts() ) :
+    $wp_query->the_post(); ?>
+
     <div class="expanded row">
       <div class="large-3 columns travauxright">
-        <h4 class="wow fadeInRight" data-wow-delay="0.6s">Bibliothèque</h4>
-        <h5 class="wow fadeInRight" data-wow-delay="0.8s">Chêne, 81x180cm</h5>
+        <h4 class="wow fadeInLeft" data-wow-delay="0.6s"><?php the_title(); ?></h4>
+        <h5 class="wow fadeInLeft" data-wow-delay="0.8s"><?php the_excerpt(); ?></h5>
       </div>
       <div class="large-9 columns wow fadeInRight" data-wow-delay="0.4s">
-        <a href="#" class="">
-          <img src="wp-content/themes/foundationpress/assets/images/travaux1.png" class="hvr-shrink" alt="">
+        <a href="<?php the_permalink(); ?>" class="">
+          <?php
+          if ( has_post_thumbnail() ) {
+            the_post_thumbnail();}
+          ?>
         </a>
       </div>
     </div>
 
+  <?php endwhile;
+  wp_reset_query();
+        ?>
 
-    <div class="expanded row">
-      <div class="large-9 columns wow fadeInLeft" data-wow-delay="0.4s">
-          <a href="#" class="">
-            <img src="wp-content/themes/foundationpress/assets/images/travaux1.png" class="hvr-shrink" alt="">
-          </a>
-      </div>
-      <div class="large-3 columns">
-        <h4 class="wow fadeInLeft" data-wow-delay="0.6s">Bibliothèque</h4>
-        <h5 class="wow fadeInLeft" data-wow-delay="0.8s">Chêne, 81x180cm</h5>
-      </div>
-    </div>
 
-    <div class="expanded row">
-      <div class="large-3 columns travauxright">
-        <h4 class="wow fadeInRight" data-wow-delay="0.6s">Bibliothèque</h4>
-        <h5 class="wow fadeInRight" data-wow-delay="0.8s">Chêne, 81x180cm</h5>
-      </div>
-      <div class="large-9 columns wow fadeInRight" data-wow-delay="0.4s">
-        <a href="#" class="">
-          <img src="wp-content/themes/foundationpress/assets/images/travaux1.png" class="hvr-shrink" alt="">
-        </a>
-      </div>
-    </div>
+
 
   </section>
 
@@ -133,7 +142,7 @@ Lui poser des questions ? Remplissez le formulaire, il se chargera de vous répo
   		<label for="forname" class="wow fadeInUp" data-wow-delay="0.6s">Type de meuble</label>
   		<input type="text" class="wow fadeInUp" data-wow-delay="0.4s" name="meuble" id="meuble" placeholder="Bibliothèque par exemple" value="" />
     </div>
-    <div class="large-4 columns">
+    <div class="large-3 columns end">
       <label for="name" class="wow fadeInUp" data-wow-delay="0.6s">E-mail</label>
   		<input type="text" name="name" id="name" placeholder="E-mail*" value="" class="wow fadeInUp" data-wow-delay="0.4s"/>
   		<label for="forname" class="wow fadeInUp" data-wow-delay="0.6s">Téléphone*</label>
@@ -154,7 +163,7 @@ Lui poser des questions ? Remplissez le formulaire, il se chargera de vous répo
        </p>
     </div>
 
-    <div class="large-8 columns">
+    <div class="large-7 columns end">
       <label for="message" class="wow fadeInUp" data-wow-delay="0.6s">Message</label>
       <textarea name="message" id="message" rows="8" cols="80" placeholder="Ecrivez votre message" class="wow fadeInUp" data-wow-delay="0.4s"></textarea>
       <input type="text" name="" class="button warning wow fadeInUp" date-wow-delay="0.8s" value="Envoyer">
