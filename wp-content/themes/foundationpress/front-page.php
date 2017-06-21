@@ -54,7 +54,7 @@ get_header(); ?>
       </div>
       <div class="large-3 columns">
         <h4 class="wow fadeInLeft" data-wow-delay="0.6s"><?php the_title(); ?></h4>
-        <h5 class="wow fadeInLeft" data-wow-delay="0.8s"><?php the_excerpt(); ?></h5>
+        <h5 class="wow fadeInLeft" data-wow-delay="0.8s"><?php the_field(caracteristique); ?></h5>
       </div>
     </div>
 
@@ -80,7 +80,7 @@ get_header(); ?>
     <div class="expanded row">
       <div class="large-3 columns travauxright">
         <h4 class="wow fadeInLeft" data-wow-delay="0.6s"><?php the_title(); ?></h4>
-        <h5 class="wow fadeInLeft" data-wow-delay="0.8s"><?php the_excerpt(); ?></h5>
+        <h5 class="wow fadeInLeft" data-wow-delay="0.8s"><?php the_field(caracteristique); ?></h5>
       </div>
       <div class="large-9 columns wow fadeInRight" data-wow-delay="0.4s">
         <a href="<?php the_permalink(); ?>" class="">

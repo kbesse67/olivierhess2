@@ -31,23 +31,28 @@
 
 
 
+	<!-- BOUTON DE RETOUR -->
+	<nav class="navback hvr-grow ">
+		<a href="http://localhost:8888/olivierhess/">< BACK</a>
+	</nav>
+
+
 <!--HEADER NAVIGATION GAUCHE -->
 
-	<header id="mySidenav" class="sidenav wow fadeIn">
+<header id="mySidenav" class="sidenavprojet wow fadeIn">
+		<div class="row">
+				<h4 class="wow fadeInLeft text-center" data-wow-delay="0.6s"><?php the_title(); ?></h4>
+				<h5 class="wow fadeInLeft text-center" data-wow-delay="0.8s"><?php the_field(caracteristique); ?><?php the_field(caracteristiquerea); ?></h5>
+		</div>
 
-	<a href="#" class="text-center logo wow fadeInLeft js-scrollTo" data-wow-delay="0.4s" >
-		<img src="wp-content/themes/foundationpress/assets/images/logo.png" alt="" class="js-scrollTo"></a>
+	<div class="contenu">
+		<p>
+			<?php the_field(description); ?>
+			<?php the_field(descriptionreal); ?>
+		</p>
 
-	<nav >
-    <ul data-magellan data-options="barOffset:30;" activeClass="active">
-			 <li class="hvr-grow wow fadeInLeft navhome" data-wow-delay="0.4s" ><a href="#accueil" class="js-scrollTo">Home</a></li>
-      <li class="hvr-grow wow fadeInLeft" data-wow-delay="0.4s"><a href="#travaux" class="js-scrollTo">Travaux</a></li>
-      <li  class="hvr-grow wow fadeInLeft" data-wow-delay="0.6s"><a href="#olivierhass" class="js-scrollTo">Olivier Hess</a></li>
-      <li  class="hvr-grow wow fadeInLeft" data-wow-delay="0.8s"><a href="#contact" class="js-scrollTo">Contact</a></li>
-    </ul>
-  </nav>
+			<h4 class="text-right">2017</h4>
+	</div>
 
 
-</header>
-	<section class="container">
-		<?php do_action( 'foundationpress_after_header' );
+</header><!--

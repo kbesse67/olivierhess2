@@ -1,0 +1,101 @@
+.sidenavprojet {
+padding-top:250px;
+  height:100vh;
+  width:420px;
+
+  background:white;
+  display:inline-block ;
+  h4 {
+    font-weight:700;
+    margin-bottom:20px;
+  }
+  h5 {color:#c6c5c6;
+  margin-bottom:40px;}
+
+  .contenu {
+    padding-left:40px;
+    padding-right:40px;
+  }
+}
+
+.navback:hover {background:black;}
+.navback {
+  position:absolute;
+  left:420px;
+  top:220px;
+  z-index:5;
+  background:#273375;
+
+  font-weight:700;
+
+  a {
+    color:white;
+    display:block;
+    width:100%;
+    margin-right:80px;
+    margin-left:80px;
+    margin-top:15px;
+    margin-bottom:15px;
+
+  }
+  a:hover {
+    color:white;
+  }
+}
+
+
+
+
+@include breakpoint(medium only) {
+
+  .sidenavprojet {
+  padding-top:70px;
+    height:inherit;
+    padding-bottom:70px;
+    width:100%;
+
+
+  }
+
+
+  .navback {
+    position:absolute;
+    left:inherit;
+    right:0;
+    top:20px;
+    z-index:5;
+    background:#273375;
+
+    font-weight:700;
+
+
+  }
+
+}
+
+
+@include breakpoint(small only) {
+
+  .sidenavprojet {
+  padding-top:70px;
+    height:inherit;
+    padding-bottom:70px;
+    width:100%;
+
+
+  }
+
+
+  .navback {
+    position:absolute;
+    left:inherit;
+    right:0;
+    top:20px;
+    z-index:5;
+    background:#273375;
+
+    font-weight:700;
+
+
+  }
+}
