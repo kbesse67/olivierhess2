@@ -1,0 +1,28 @@
+.themain {
+  background:white;
+  position:relative;
+  width:calc(100% - 420px);
+
+  display:inline-block;
+  vertical-align: top;
+  position:relative;
+
+}
+
+@include breakpoint(medium only) {
+
+  .themain {
+    width:100%;
+  }
+
+}
+
+
+
+@include breakpoint(small only) {
+
+
+  .themain {
+    width:100%;
+  }
+}
